@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="title">Note Body</label>
-        <textarea  name="body" type="text" class="form-control" ></textarea>
+        <textarea  name="body" type="text" class="form-control" id='article-ckeditor' ></textarea>
         </div>
     <input class="btn btn-primary" value="Submit" type="submit"/>
     <input type="hidden" name="notebook_id" value={{$id}} />
