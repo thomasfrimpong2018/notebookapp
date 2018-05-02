@@ -27,10 +27,18 @@ class NotebooksController extends Controller
     }
 
     public function store(Request $request){
-        $dataInput= $request->all();
+        //$dataInput= $request->all();
         //Notebook::create($dataInput);
         /*$user=Auth::user();
         $user->notebooks()->create();*/
+
+        //Validating data inputs
+        $this->validate($request, [
+            'name'=>'required',
+            
+        ]);
+
+
 
         $notebook= new Notebook;
         $notebook->name=$request->input('name');
@@ -65,6 +73,14 @@ class NotebooksController extends Controller
 
         /*$notebook=Notebook::where('id',$id)->first();
         $notebook->update($request->all());*/
+
+        //Validating inputs
+        $this->validate($request, [
+            'name'=>'required',
+            
+        ]);
+
+
         
         $notebook= Notebook::find($id);
         $notebook->name=$request->input('name');

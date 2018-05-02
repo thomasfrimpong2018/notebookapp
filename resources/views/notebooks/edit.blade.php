@@ -4,15 +4,18 @@
 
 <div class="container">
 <h1>Edit Notebook</h1>
-<form action="/notebooks/{{$notebook->id}}" method="POST" >
-    {{csrf_field()}}
-    {{method_field('PUT')}}
-    <div class="form-group">
-    <label for="name">Notebook Name</label>
-    <input  name="name" type="text" class="form-control" />
-    </div>
-    <input class="btn btn-primary" value="Update" type="submit"/>
-    </div>
-</form>
+
+
+{!! Form::open(['action'=>['NotebooksController@update',$notebook->id],'method'=>'POST'])!!}
+ <div class="form-group">
+  {{Form::label("name",'Notebook Name')}}
+ </div>
+ <div class='form-group'>
+    {{Form::text('name',$notebook->name, ['class'=>'form-control','placeholder'=>'Enter Title'])}}  
+ </div>
+ 
+ {{Form::hidden('_method','PUT')}}
+ {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+{!!Form::close()!!}
 
 @endsection

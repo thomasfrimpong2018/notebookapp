@@ -59,12 +59,17 @@
         </nav>
         <!-- /navbar -->
         <!-- Main component for call to action -->
+        <div class="container">@include('inc.messages')</div>
         @yield('content')
     </div>
     <!-- /container -->
 
     <script src="/dist/js/jquery3.min.js"></script>
     <script src="/dist/js/bootstrap.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+      <script >
+        CKEDITOR.replace('article-ckeditor');
+      </script>
 </body>
 
 </html>

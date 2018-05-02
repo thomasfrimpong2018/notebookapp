@@ -4,20 +4,20 @@
 
 <div class="container">
 <h1>Edit Notes</h1>
-<form action={{route("notes.update",$note->id)}} method="POST" >
-    {{csrf_field()}}
-    {{method_field('PUT')}}
-    <div class="form-group">
-    <label for="title">Notes Title</label>
-    <input  name="title" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label for="body">Note Body</label>
-        <input  name="body" type="text" class="form-control" />
-       
-        </div>
-    <input class="btn btn-primary" value="Update" type="submit"/>
-    </div>
-</form>
+
+{!! Form::open(['action'=>['NotesController@update',$note->id],'method'=>'POST'])!!}
+ <div class="form-group">
+  {{Form::label("title",'Title')}}
+
+ {{Form::text('title',$note->title, ['class'=>'form-control','placeholder'=>'Enter Title'])}}
+ </div>
+ <div class='form-group'>
+    {{Form::label('body','Body')}}
+    {{Form::textarea('body',$note->body,['id'=>'article-ckeditor','class'=>'form-control','placeholder'=>'Enter Text'])}}
+ </div>
+ 
+ {{Form::hidden('_method','PUT')}}
+ {{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+{!!Form::close()!!}
 
 @endsection
