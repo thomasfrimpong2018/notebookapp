@@ -1,0 +1,1 @@
+This is a complete application that uses the basic concepts and principles in the laravel framework of web development.
