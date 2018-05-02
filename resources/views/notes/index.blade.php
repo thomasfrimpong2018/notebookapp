@@ -26,7 +26,7 @@
                             </h4>
                         </a>
                         <p class="card-text">
-                            {{$note->body}}
+                            {!!$note->body!!}
                         </p>
                     <a class="btn btn-sm btn-info pull-xs-left" href={{route("notes.edit",$note->id)}}>
                             Edit
